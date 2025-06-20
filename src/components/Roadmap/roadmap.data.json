@@ -1,0 +1,42 @@
+[
+  {
+    "title": "E-commerce Backend API Development",
+    "imageLink": "https://t4.ftcdn.net/jpg/03/08/69/75/360_F_308697506_9dsBYHXm9FwuW0qcEqimAEXUvzTwfzwe.jpg",
+    "link": "https://github.com/yourusername/ecommerce-backend-api",
+    "month": "June",
+    "year": "2025",
+    "description": "Built a robust RESTful API for an e-commerce platform, handling user authentication, product management, and order processing. Implemented with Node.js, Express, and MongoDB, incorporating secure JWT authentication."
+  },
+  {
+    "title": "Unity Mobile Game Prototype",
+    "imageLink": "https://t4.ftcdn.net/jpg/03/08/69/75/360_F_308697506_9dsBYHXm9FwuW0qcEqimAEXUvzTwfzwe.jpg",
+    "link": "https://example.com/mobile-game-demo",
+    "month": "May",
+    "year": "2025",
+    "description": "Developed a functional prototype for a casual mobile puzzle game using Unity and C#. Explored game mechanics, UI/UX design, and basic physics simulation, demonstrating core gameplay loops."
+  },
+  {
+    "title": "Real-time Data Visualization Dashboard",
+    "imageLink": "https://t4.ftcdn.net/jpg/03/08/69/75/360_F_308697506_9dsBYHXm9FwuW0qcEqimAEXUvzTwfzwe.jpg",
+    "link": "https://example.com/dashboard-demo",
+    "month": "April",
+    "year": "2025",
+    "description": "Created a dynamic web dashboard to visualize real-time sensor data. Utilized React for the frontend, D3.js for interactive charts, and a WebSocket connection for live data feeds."
+  },
+  {
+    "title": "Cloud Infrastructure Automation with Terraform",
+    "imageLink": "https://t4.ftcdn.net/jpg/03/08/69/75/360_F_308697506_9dsBYHXm9FwuW0qcEqimAEXUvzTwfzwe.jpg",
+    "link": "https://github.com/yourusername/terraform-aws-config",
+    "month": "March",
+    "year": "2025",
+    "description": "Automated the deployment and management of cloud resources (VPCs, EC2 instances, S3 buckets) on AWS using Terraform. Focused on creating reusable and scalable infrastructure as code modules."
+  },
+  {
+    "title": "Real-time Data Visualization Dashboard",
+    "imageLink": "https://t4.ftcdn.net/jpg/03/08/69/75/360_F_308697506_9dsBYHXm9FwuW0qcEqimAEXUvzTwfzwe.jpg",
+    "link": "https://example.com/dashboard-demo",
+    "month": "April",
+    "year": "2025",
+    "description": "Created a dynamic web dashboard to visualize real-time sensor data. Utilized React for the frontend, D3.js for interactive charts, and a WebSocket connection for live data feeds."
+  }
+]
