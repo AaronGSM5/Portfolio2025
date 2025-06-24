@@ -1,7 +1,7 @@
 export interface ProjectData {
+  id: string
   title: string
   imageLink: string
-  link: string
   description: string
   month: string
   year: string
@@ -12,8 +12,20 @@ export interface RoadmapProps {
 }
 
 export interface ProjectCardProps {
+  id: string
+  index: number
   title: string
   imageLink: string
-  link: string
   description: string
+  month: string
+  year: string
+}
+
+export interface ProjectDetail {
+  coworkers: string[] | null
+  link: string | null
+  languages: string[]
+  technologies: string[]
+  longdescriptions: string[]
+  images: string[]
 }

@@ -1,19 +1,11 @@
 "use client";
 
 import { FC, useState, useEffect, useRef } from "react";
-import roadmapData from "./roadmap.data.json";
 import ProjectCard from "./ProjectCard";
 import { FlipWords } from "../ui/flip-words";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
-export interface RoadmapProject {
-  title: string;
-  description: string;
-  imageLink: string;
-  link: string;
-  month?: string;
-  year?: string;
-}
+import { projects as roadmapData } from "@/lib/content/index";
 
 const Roadmap: FC = () => {
   const words = ["journey", "voyage", "experience", "evolution", "adventure"];
@@ -82,7 +74,7 @@ const Roadmap: FC = () => {
           <div
             className={`relative flex flex-col gap-y-24 ${isMobile ? "pl-12" : ""}`}
           >
-            {roadmapData.map((project: RoadmapProject, index: number) => {
+            {roadmapData.map((project, index) => {
               const isLeftAligned = index % 2 === 0;
               const isDotActive = dotRefs.current[index]
                 ? dotRefs.current[index]!.offsetTop < lineHeight
@@ -95,21 +87,26 @@ const Roadmap: FC = () => {
                   {/* On desktop, content is in a w-1/2 div. On mobile, it's full-width. */}
                   <div className={!isMobile ? "w-1/2 px-4" : "w-full"}>
                     <div
-                      className={`relative ${!isMobile && (isLeftAligned ? "text-right" : "text-left")}`}
+                      className={`relative ${isMobile ? "text-left" : "text-center"}`}
                     >
                       <div className="inline-block">
                         <ProjectCard
+                          index={index}
+                          id={project.id}
                           title={project.title}
                           imageLink={project.imageLink}
-                          link={project.link}
                           description={project.description}
+                          month={project.month}
+                          year={project.year}
                         />
                       </div>
                     </div>
                   </div>
 
                   <div
-                    ref={(el) => (dotRefs.current[index] = el)}
+                    ref={(el) => {
+                      dotRefs.current[index] = el;
+                    }}
                     className={`absolute w-4 h-4 rounded-full border-4 z-10 transition-colors duration-500 ${isMobile ? "left-2.5 -translate-x-1/2" : "left-1/2 -translate-x-1/2"} ${isDotActive ? "bg-blue-400 border-sky-300" : "bg-gray-700 border-slate-950"}`}
                   ></div>
                 </div>

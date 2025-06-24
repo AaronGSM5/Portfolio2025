@@ -1,0 +1,75 @@
+{
+  "test1": {
+    "coworkers": null,
+    "link": "https://github.com/yourusername/ecommerce-backend-api",
+    "languages": [
+      "JavaScript",
+      "TypeScript",
+      "SQL"
+    ],
+    "technologies": [
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Prisma",
+      "JWT",
+      "Docker"
+    ],
+    "longdescriptions": [
+      "This project was developed to provide a foundational backend for boutique online stores. The primary goal was to create a secure, efficient, and easy-to-integrate API that handles all critical e-commerce functionalities, from product catalog management to secure payment processing. We focused on a clean, layered architecture to ensure the system is maintainable and can scale as the business grows.",
+      "One of the main challenges was designing a flexible database schema with Prisma that could accommodate various product types, custom attributes, and inventory tracking across multiple locations. We implemented a robust role-based access control (RBAC) system using JSON Web Tokens (JWT) to secure endpoints and protect sensitive user and order data. The entire application is containerized using Docker, allowing for consistent development, testing, and deployment environments."
+    ],
+    "images": [
+      "https://t4.ftcdn.net/jpg/03/08/69/75/360_F_308697506_9dsBYHXm9FwuW0qcEqimAEXUvzTwfzwe.jpg",
+      "https://t4.ftcdn.net/jpg/03/08/69/75/360_F_308697506_9dsBYHXm9FwuW0qcEqimAEXUvzTwfzwe.jpg",
+      "https://t4.ftcdn.net/jpg/03/08/69/75/360_F_308697506_9dsBYHXm9FwuW0qcEqimAEXUvzTwfzwe.jpg"
+    ]
+  },
+  "test2": {
+    "coworkers": null,
+    "link": "https://github.com/yourusername/portfolio-website-v2",
+    "languages": [
+      "TypeScript",
+      "HTML",
+      "CSS"
+    ],
+    "technologies": [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Vercel"
+    ],
+    "longdescriptions": [
+      "The goal for this project was to create a visually striking personal portfolio that went beyond a simple list of projects. I wanted to build an interactive and memorable experience for visitors. Using Next.js for its server-side rendering capabilities was a key decision to ensure fast page loads and excellent SEO performance. The design process was heavily focused on a clean UI and a strong user experience, with a mobile-first approach.",
+      "Animating the various components with Framer Motion was both the most challenging and rewarding part of this project. I engineered custom page transitions, scroll-triggered animations, and micro-interactions to bring the static design to life. The site is continuously deployed via Vercel, which hooks directly into the GitHub repository, making updates and new project additions a seamless process."
+    ],
+    "images": [
+      "https://t4.ftcdn.net/jpg/03/08/69/75/360_F_308697506_9dsBYHXm9FwuW0qcEqimAEXUvzTwfzwe.jpg",
+      "https://t4.ftcdn.net/jpg/03/08/69/75/360_F_308697506_9dsBYHXm9FwuW0qcEqimAEXUvzTwfzwe.jpg"
+    ]
+  },
+  "test3": {
+    "coworkers": null,
+    "link": "https://github.com/yourusername/task-management-dashboard",
+    "languages": [
+      "TypeScript",
+      "Python"
+    ],
+    "technologies": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Appwrite",
+      "Zustand"
+    ],
+    "longdescriptions": [
+      "Inspired by the need for a lightweight and intuitive project management tool, this dashboard provides features like drag-and-drop Kanban boards, real-time updates for collaboration, and user assignments. The primary objective was to build a highly responsive and performant single-page application (SPA) that feels fast and fluid for the end-user.",
+      "We chose Appwrite as our Backend-as-a-Service (BaaS) to handle the database, user authentication, and real-time functionalities. This allowed us to focus heavily on the frontend experience without spending months building a custom backend. For state management, we opted for Zustand due to its simplicity and minimal boilerplate compared to other solutions like Redux. The result is a fast, user-friendly tool that effectively streamlines team collaboration and project tracking."
+    ],
+    "images": [
+      "https://t4.ftcdn.net/jpg/03/08/69/75/360_F_308697506_9dsBYHXm9FwuW0qcEqimAEXUvzTwfzwe.jpg",
+      "https://t4.ftcdn.net/jpg/03/08/69/75/360_F_308697506_9dsBYHXm9FwuW0qcEqimAEXUvzTwfzwe.jpg"
+    ]
+  }
+}
