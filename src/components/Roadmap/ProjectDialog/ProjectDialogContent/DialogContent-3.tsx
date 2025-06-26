@@ -1,10 +1,11 @@
-import type React from "react";
 import type { FC } from "react";
+import type { ProjectDialogContent } from "../../types";
+
 import Image from "next/image";
+import { Code, ExternalLink, Users, Lightbulb, ImageIcon } from "lucide-react";
 import {
   DialogHeader,
   DialogTitle,
-  DialogDescription,
   DialogFooter,
   DialogClose,
 } from "@/components/ui/dialog";
@@ -17,91 +18,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import {
-  Code,
-  Database,
-  Smartphone,
-  Monitor,
-  Cloud,
-  Zap,
-  Palette,
-  Settings,
-  FileCode,
-  Layers,
-  ExternalLink,
-  Users,
-  Lightbulb,
-  ImageIcon,
-} from "lucide-react";
-import type { ProjectDetail } from "../../types";
 
-interface ProjectDialogBodyMinimalProps extends ProjectDetail {
-  title: string;
-  description: string;
-}
+import { getIcon } from "./content";
 
-// Icon mapping for languages and technologies
-const getIcon = (name: string) => {
-  const iconMap: {
-    [key: string]: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  } = {
-    // Languages
-    javascript: Code,
-    typescript: Code,
-    python: Code,
-    java: Code,
-    cpp: Code,
-    "c++": Code,
-    html: FileCode,
-    css: Palette,
-    sql: Database,
-    php: Code,
-    ruby: Code,
-    go: Code,
-    rust: Code,
-    swift: Smartphone,
-    kotlin: Smartphone,
-
-    // Technologies/Frameworks
-    react: Layers,
-    nextjs: Monitor,
-    "next.js": Monitor,
-    vue: Layers,
-    angular: Layers,
-    nodejs: Settings,
-    "node.js": Settings,
-    express: Settings,
-    django: Settings,
-    flask: Settings,
-    mongodb: Database,
-    postgresql: Database,
-    mysql: Database,
-    redis: Database,
-    docker: Cloud,
-    kubernetes: Cloud,
-    aws: Cloud,
-    azure: Cloud,
-    gcp: Cloud,
-    firebase: Cloud,
-    tailwind: Palette,
-    bootstrap: Palette,
-    sass: Palette,
-    webpack: Settings,
-    vite: Zap,
-    git: Code,
-    github: Code,
-    gitlab: Code,
-    figma: Palette,
-    photoshop: Palette,
-  };
-
-  const key = name.toLowerCase().replace(/\s+/g, "");
-  return iconMap[key] || Code;
-};
-
-const ProjectDialogBodyMinimal: FC<ProjectDialogBodyMinimalProps> = ({
+const ProjectDialogBodyMinimal: FC<ProjectDialogContent> = ({
   title,
-  description,
   coworkers,
   longdescriptions,
   link,
@@ -117,9 +38,6 @@ const ProjectDialogBodyMinimal: FC<ProjectDialogBodyMinimalProps> = ({
             <DialogTitle className="text-3xl font-extrabold text-white leading-tight">
               {title}
             </DialogTitle>
-            <DialogDescription className="text-lg text-gray-300 mt-2 leading-relaxed">
-              {description}
-            </DialogDescription>
           </div>
         </div>
       </DialogHeader>

@@ -1,14 +1,8 @@
-import type { FC, ReactNode } from "react";
+import type { FC } from "react";
+import type { ProjectDialogProps } from "../types";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import type { ProjectCardProps, ProjectDetail } from "../types";
 import { projectDetails } from "@/lib/content";
-import ProjectDialogBody1 from "./ProjectDialogContent/DialogContent-1";
-import ProjectDialogBody2 from "./ProjectDialogContent/DialogContent-2";
-import ProjectDialogBody3 from "./ProjectDialogContent/DialogContent-3";
-
-interface ProjectDialogProps extends ProjectCardProps {
-  children: ReactNode;
-}
+import { dialogBodies } from "./ProjectDialogContent/content";
 
 const ProjectDialog: FC<ProjectDialogProps> = ({
   index,
@@ -17,14 +11,7 @@ const ProjectDialog: FC<ProjectDialogProps> = ({
   description,
   id,
 }) => {
-  const projectDetailData: ProjectDetail =
-    projectDetails[id as keyof typeof projectDetails];
-
-  const dialogBodies = [
-    ProjectDialogBody1,
-    ProjectDialogBody2,
-    ProjectDialogBody3,
-  ];
+  const projectDetailData = projectDetails[id as keyof typeof projectDetails];
 
   const DialogBodyComponent = dialogBodies[index % dialogBodies.length];
 

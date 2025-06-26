@@ -1,96 +1,16 @@
 import type { FC } from "react";
+import type { ProjectDialogContent } from "../../types";
 import Image from "next/image";
-import {
-  DialogTitle,
-  DialogDescription,
-  DialogFooter,
-  DialogClose,
-} from "@/components/ui/dialog";
+import { Code, Star, ArrowRight } from "lucide-react";
+
+import { DialogTitle, DialogFooter, DialogClose } from "@/components/ui/dialog";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Code,
-  Database,
-  Smartphone,
-  Monitor,
-  Cloud,
-  Zap,
-  Palette,
-  Settings,
-  FileCode,
-  Layers,
-  Star,
-  ArrowRight,
-} from "lucide-react";
-import type { ProjectDetail } from "../../types";
 
-interface ProjectDialogBodyMagazineProps extends ProjectDetail {
-  title: string;
-  description: string;
-}
+import { getIcon } from "./content";
 
-// Icon mapping for languages and technologies
-const getIcon = (name: string) => {
-  const iconMap: {
-    [key: string]: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  } = {
-    // Languages
-    javascript: Code,
-    typescript: Code,
-    python: Code,
-    java: Code,
-    cpp: Code,
-    "c++": Code,
-    html: FileCode,
-    css: Palette,
-    sql: Database,
-    php: Code,
-    ruby: Code,
-    go: Code,
-    rust: Code,
-    swift: Smartphone,
-    kotlin: Smartphone,
-
-    // Technologies/Frameworks
-    react: Layers,
-    nextjs: Monitor,
-    "next.js": Monitor,
-    vue: Layers,
-    angular: Layers,
-    nodejs: Settings,
-    "node.js": Settings,
-    express: Settings,
-    django: Settings,
-    flask: Settings,
-    mongodb: Database,
-    postgresql: Database,
-    mysql: Database,
-    redis: Database,
-    docker: Cloud,
-    kubernetes: Cloud,
-    aws: Cloud,
-    azure: Cloud,
-    gcp: Cloud,
-    firebase: Cloud,
-    tailwind: Palette,
-    bootstrap: Palette,
-    sass: Palette,
-    webpack: Settings,
-    vite: Zap,
-    git: Code,
-    github: Code,
-    gitlab: Code,
-    figma: Palette,
-    photoshop: Palette,
-  };
-
-  const key = name.toLowerCase().replace(/\s+/g, "");
-  return iconMap[key] || Code;
-};
-
-const ProjectDialogBodyMagazine: FC<ProjectDialogBodyMagazineProps> = ({
+const ProjectDialogBodyMagazine: FC<ProjectDialogContent> = ({
   title,
-  description,
   coworkers,
   longdescriptions,
   link,
@@ -99,9 +19,7 @@ const ProjectDialogBodyMagazine: FC<ProjectDialogBodyMagazineProps> = ({
   images,
 }) => {
   return (
-    // The root div is made transparent so the parent DialogContent's gradient background is visible.
     <div className="flex flex-col h-full">
-      {/* Hero Section */}
       <div className="relative">
         {images && images.length > 0 && (
           <div className="relative h-64 md:h-80 overflow-hidden">
@@ -116,9 +34,6 @@ const ProjectDialogBodyMagazine: FC<ProjectDialogBodyMagazineProps> = ({
               <DialogTitle className="text-3xl md:text-4xl font-extrabold text-white mb-2 drop-shadow-lg">
                 {title}
               </DialogTitle>
-              <DialogDescription className="text-lg text-white/90 drop-shadow">
-                {description}
-              </DialogDescription>
             </div>
           </div>
         )}

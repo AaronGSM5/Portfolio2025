@@ -25,5 +25,14 @@
     "month": "April",
     "year": "2025",
     "description": "Created a dynamic web dashboard to visualize real-time sensor data. Utilized React for the frontend, D3.js for interactive charts, and a WebSocket connection for live data feeds."
+  },
+  {
+    "id": "test4",
+    "title": "Real-time Data Visualization Dashboard",
+    "imageLink": "https://t4.ftcdn.net/jpg/03/08/69/75/360_F_308697506_9dsBYHXm9FwuW0qcEqimAEXUvzTwfzwe.jpg",
+    "link": "https://example.com/dashboard-demo",
+    "month": "April",
+    "year": "2025",
+    "description": "Created a dynamic web dashboard to visualize real-time sensor data. Utilized React for the frontend, D3.js for interactive charts, and a WebSocket connection for live data feeds."
   }
 ]

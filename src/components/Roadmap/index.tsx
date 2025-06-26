@@ -19,23 +19,44 @@ const Roadmap: FC = () => {
     let debounceTimeout: NodeJS.Timeout;
 
     const handleScroll = () => {
+      // Clear the previous timeout to avoid multiple executions
       clearTimeout(debounceTimeout);
+
+      // Set a new timeout to run the logic after a short delay (debouncing)
       debounceTimeout = setTimeout(() => {
         if (!containerRef.current) return;
 
-        const rect = containerRef.current.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-        const focalPoint = viewportHeight / 2;
-        const newHeight = focalPoint - rect.top;
-        const maxLineHeight = containerRef.current.scrollHeight;
-        const clampedHeight = Math.max(0, Math.min(newHeight, maxLineHeight));
-        setLineHeight(clampedHeight);
-      }, 100);
+        // Check if the user has scrolled to the very bottom of the page.
+        // A small tolerance (e.g., 5 pixels) is added to handle rounding issues.
+        const isAtBottom =
+          window.innerHeight + window.scrollY >=
+          document.documentElement.scrollHeight - 5;
+
+        if (isAtBottom) {
+          // If at the bottom, force the line to its maximum height to complete the animation.
+          setLineHeight(containerRef.current.scrollHeight);
+        } else {
+          // If not at the bottom, calculate the height based on the scroll position.
+          const rect = containerRef.current.getBoundingClientRect();
+          const viewportHeight = window.innerHeight;
+          // Use the center of the viewport as the focal point for the animation.
+          const focalPoint = viewportHeight / 2;
+          const newHeight = focalPoint - rect.top;
+          const maxLineHeight = containerRef.current.scrollHeight;
+
+          // Ensure the calculated height is within the valid range (0 to maxLineHeight).
+          const clampedHeight = Math.max(0, Math.min(newHeight, maxLineHeight));
+          setLineHeight(clampedHeight);
+        }
+      }, 10); // Reduced debounce time for a snappier feel.
     };
 
+    // Add the scroll event listener when the component mounts.
     window.addEventListener("scroll", handleScroll);
+    // Run the function once on load to set the initial state correctly.
     handleScroll();
 
+    // Clean up the event listener and timeout when the component unmounts.
     return () => {
       window.removeEventListener("scroll", handleScroll);
       clearTimeout(debounceTimeout);
@@ -43,7 +64,7 @@ const Roadmap: FC = () => {
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-b from-slate-950 to-gray-950 text-white">
+    <div className="w-full min-h-screen bg-transparent text-white">
       <div className="relative z-10 py-16">
         <div className="text-left mb-24 ml-8 mr-8">
           <h1 className="flex flex-col text-center w-full text-5xl font-extrabold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
@@ -66,7 +87,7 @@ const Roadmap: FC = () => {
             className={`absolute top-8 h-[calc(100%-2rem)] w-1 bg-gray-800 ${isMobile ? "left-6" : "left-1/2 -translate-x-1/2"}`}
           ></div>
           <div
-            className={`absolute top-8 w-1 bg-gradient-to-b from-blue-400 to-slate-500 transition-[height] duration-800 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${isMobile ? "left-6" : "left-1/2 -translate-x-1/2"}`}
+            className={`absolute top-8 w-1 bg-gradient-to-b from-blue-400 to-slate-500 transition-[height] duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] shadow-blue-700 ${isMobile ? "left-6" : "left-1/2 -translate-x-1/2"}`}
             style={{ height: `${lineHeight}px` }}
           ></div>
 
