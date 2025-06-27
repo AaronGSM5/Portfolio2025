@@ -13,34 +13,6 @@ const geistMono = Geist_Mono({
 });
 
 import React from "react";
-import { FloatingNav } from "@/components/ui/floating-navbar";
-import { Home, MessageCircle, User } from "lucide-react";
-export function FloatingNavBar() {
-  const navItems = [
-    {
-      name: "Home",
-      link: "/",
-      icon: <Home className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-    {
-      name: "About",
-      link: "/about",
-      icon: <User className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-    {
-      name: "Contact",
-      link: "/contact",
-      icon: (
-        <MessageCircle className="h-4 w-4 text-neutral-500 dark:text-white" />
-      ),
-    },
-  ];
-  return (
-    <div className="relative  w-full">
-      <FloatingNav navItems={navItems} />
-    </div>
-  );
-}
 
 export const metadata: Metadata = {
   title: "Aaron Gaßmann",
@@ -55,9 +27,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-b from-slate-950 to-gray-950`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-gradient-to-b from-slate-950 to-gray-950 bg-slate-950`}
       >
-        <FloatingNavBar />
         {children}
         <footer className="mt-16 dark:border-gray-700 py-6 text-center text-sm text-gray-500 dark:text-gray-400">
           © {new Date().getFullYear()} Aaron Gaßmann. All rights reserved.

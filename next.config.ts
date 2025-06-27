@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
       'media.istockphoto.com'
     ],
   },
+  output: 'export',
+  basePath: '/Portfolio2025',
+  assetPrefix: '/Portfolio2025/',
 };
 
 export default nextConfig;

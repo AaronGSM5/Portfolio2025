@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "next build && touch out/.nojekyll && gh-pages -d out"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.10",
@@ -31,6 +32,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.0",
+    "gh-pages": "^6.3.0",
     "prettier": "^3.5.3",
     "tailwindcss": "^4",
     "typescript": "^5"

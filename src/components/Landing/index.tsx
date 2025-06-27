@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Twitter, Mail, Code } from "lucide-react";
 import Link from "next/link";
 
+import { landing } from "@/lib/content/index";
+
 export default function PortfolioHero() {
   const socialLinks = [
     { icon: Github, href: "https://github.com/yourusername", label: "GitHub" },
@@ -33,7 +35,7 @@ export default function PortfolioHero() {
             <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg blur opacity-25"></div>
             <div className="relative bg-black/50 backdrop-blur-sm border border-white/10 rounded-lg px-6 py-3 inline-block">
               <p className="text-xl md:text-2xl text-gray-300 font-light">
-                Full Stack Developer & Engineer
+                {landing.job}
               </p>
             </div>
           </div>
@@ -42,9 +44,7 @@ export default function PortfolioHero() {
         {/* Introduction */}
         <div className={`transition-all duration-1000 delay-300`}>
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-            Crafting digital experiences with modern technologies. Passionate
-            about clean code, beautiful interfaces, and solving complex problems
-            with elegant solutions.
+            {landing.introduction}
           </p>
         </div>
 
@@ -57,7 +57,7 @@ export default function PortfolioHero() {
             className="cursor-pointer bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0 px-8 py-3 text-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
           >
             <Code className="mr-2 h-5 w-5" />
-            View My Work
+            {landing.buttonViewWork}
           </Button>
         </div>
 
