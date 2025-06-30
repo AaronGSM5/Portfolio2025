@@ -1,25 +1,20 @@
-import type { FC } from "react";
-import type { ProjectDialogContent } from "../../types";
+import type { FC } from 'react';
+import type { ProjectDialogContent } from '../../types';
 
-import Image from "next/image";
-import { Code, ExternalLink, Users, Lightbulb, ImageIcon } from "lucide-react";
-import {
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-  DialogClose,
-} from "@/components/ui/dialog";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
+import Image from 'next/image';
+import { Code, ExternalLink, Users, Lightbulb, ImageIcon } from 'lucide-react';
+import { DialogHeader, DialogTitle, DialogFooter, DialogClose } from '@/components/ui/dialog';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+  CarouselPrevious
+} from '@/components/ui/carousel';
 
-import { getIcon } from "./content";
+import { getIcon } from './content';
 
 const ProjectDialogBodyMinimal: FC<ProjectDialogContent> = ({
   title,
@@ -28,7 +23,7 @@ const ProjectDialogBodyMinimal: FC<ProjectDialogContent> = ({
   link,
   languages,
   technologies,
-  images,
+  images
 }) => {
   return (
     <div className="flex flex-col h-full">
@@ -48,12 +43,8 @@ const ProjectDialogBodyMinimal: FC<ProjectDialogContent> = ({
           <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700">
             <div className="flex items-center gap-2 mb-4">
               <ImageIcon className="w-5 h-5 text-purple-400" />
-              <h3 className="text-lg font-semibold text-white">
-                Project Showcase
-              </h3>
-              <span className="text-sm text-gray-400">
-                ({images.length} images)
-              </span>
+              <h3 className="text-lg font-semibold text-white">Project Showcase</h3>
+              <span className="text-sm text-gray-400">({images.length} images)</span>
             </div>
             <Carousel className="w-full">
               <CarouselContent>
@@ -61,7 +52,7 @@ const ProjectDialogBodyMinimal: FC<ProjectDialogContent> = ({
                   <CarouselItem key={index}>
                     <div className="relative w-full h-48 md:h-64 rounded-lg overflow-hidden bg-gray-900">
                       <Image
-                        src={image || "/placeholder.svg"}
+                        src={image || '/placeholder.svg'}
                         alt={`${title} - Image ${index + 1}`}
                         fill
                         className="object-cover hover:scale-105 transition-transform duration-300"
@@ -83,10 +74,7 @@ const ProjectDialogBodyMinimal: FC<ProjectDialogContent> = ({
             {images.length > 1 && (
               <div className="flex justify-center mt-3 gap-1">
                 {images.map((_, index) => (
-                  <div
-                    key={index}
-                    className="w-2 h-2 rounded-full bg-gray-600"
-                  />
+                  <div key={index} className="w-2 h-2 rounded-full bg-gray-600" />
                 ))}
               </div>
             )}
@@ -108,21 +96,16 @@ const ProjectDialogBodyMinimal: FC<ProjectDialogContent> = ({
                   {coworkers.map((coworker, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <Avatar className="w-8 h-8">
-                        <AvatarImage
-                          src={`/placeholder.svg?height=32&width=32`}
-                          alt={coworker}
-                        />
+                        <AvatarImage src={`/placeholder.svg?height=32&width=32`} alt={coworker} />
                         <AvatarFallback className="text-xs bg-gray-600 text-gray-300">
                           {coworker
-                            .split(" ")
+                            .split(' ')
                             .map((n) => n[0])
-                            .join("")
+                            .join('')
                             .toUpperCase()}
                         </AvatarFallback>
                       </Avatar>
-                      <span className="text-sm font-medium text-gray-200">
-                        {coworker}
-                      </span>
+                      <span className="text-sm font-medium text-gray-200">{coworker}</span>
                     </div>
                   ))}
                 </div>
@@ -138,9 +121,7 @@ const ProjectDialogBodyMinimal: FC<ProjectDialogContent> = ({
               <div className="space-y-4">
                 {languages && languages.length > 0 && (
                   <div>
-                    <p className="text-sm font-medium text-gray-400 mb-2">
-                      Languages
-                    </p>
+                    <p className="text-sm font-medium text-gray-400 mb-2">Languages</p>
                     <div className="flex flex-wrap gap-2">
                       {languages.map((language, index) => {
                         const IconComponent = getIcon(language);
@@ -160,9 +141,7 @@ const ProjectDialogBodyMinimal: FC<ProjectDialogContent> = ({
                 )}
                 {technologies && technologies.length > 0 && (
                   <div>
-                    <p className="text-sm font-medium text-gray-400 mb-2">
-                      Technologies
-                    </p>
+                    <p className="text-sm font-medium text-gray-400 mb-2">Technologies</p>
                     <div className="flex flex-wrap gap-2">
                       {technologies.map((technology, index) => {
                         const IconComponent = getIcon(technology);
@@ -216,7 +195,7 @@ const ProjectDialogBodyMinimal: FC<ProjectDialogContent> = ({
                   className="relative aspect-square rounded overflow-hidden group cursor-pointer bg-gray-900"
                 >
                   <Image
-                    src={image || "/placeholder.svg"}
+                    src={image || '/placeholder.svg'}
                     alt={`${title} - Thumbnail ${index + 1}`}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-200"
@@ -226,9 +205,7 @@ const ProjectDialogBodyMinimal: FC<ProjectDialogContent> = ({
               ))}
               {images.length > 8 && (
                 <div className="relative aspect-square rounded overflow-hidden bg-gray-800 flex items-center justify-center">
-                  <span className="text-xs text-gray-400 font-medium">
-                    +{images.length - 8}
-                  </span>
+                  <span className="text-xs text-gray-400 font-medium">+{images.length - 8}</span>
                 </div>
               )}
             </div>
@@ -264,4 +241,3 @@ const ProjectDialogBodyMinimal: FC<ProjectDialogContent> = ({
 };
 
 export default ProjectDialogBodyMinimal;
-

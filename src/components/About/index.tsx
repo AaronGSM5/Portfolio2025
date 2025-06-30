@@ -1,8 +1,7 @@
-import { FC } from "react";
+import { FC } from 'react';
 
 const index: FC = () => {
   return <></>;
 };
 
 export default index;
-

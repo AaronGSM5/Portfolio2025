@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 /**
  * A custom hook to determine if the viewport matches a CSS media query.
@@ -12,7 +12,7 @@ export const useMediaQuery = (query: string): boolean => {
 
   useEffect(() => {
     // Ensure this runs only on the client
-    if (typeof window === "undefined") return;
+    if (typeof window === 'undefined') return;
 
     const media = window.matchMedia(query);
     if (media.matches !== matches) {
@@ -23,8 +23,8 @@ export const useMediaQuery = (query: string): boolean => {
       setMatches(media.matches);
     };
 
-    media.addEventListener("change", listener);
-    return () => media.removeEventListener("change", listener);
+    media.addEventListener('change', listener);
+    return () => media.removeEventListener('change', listener);
   }, [matches, query]);
 
   return matches;

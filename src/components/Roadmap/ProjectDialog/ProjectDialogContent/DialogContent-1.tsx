@@ -1,26 +1,21 @@
-import type { FC } from "react";
-import type { ProjectDialogContent } from "../../types";
+import type { FC } from 'react';
+import type { ProjectDialogContent } from '../../types';
 
-import Image from "next/image";
-import { ExternalLink } from "lucide-react";
+import Image from 'next/image';
+import { ExternalLink } from 'lucide-react';
 
-import {
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-  DialogClose,
-} from "@/components/ui/dialog";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
+import { DialogHeader, DialogTitle, DialogFooter, DialogClose } from '@/components/ui/dialog';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+  CarouselPrevious
+} from '@/components/ui/carousel';
 
-import { getIcon } from "./content";
+import { getIcon } from './content';
 
 const ProjectDialogBody: FC<ProjectDialogContent> = ({
   title,
@@ -29,7 +24,7 @@ const ProjectDialogBody: FC<ProjectDialogContent> = ({
   link,
   languages,
   technologies,
-  images,
+  images
 }) => {
   return (
     <>
@@ -47,21 +42,16 @@ const ProjectDialogBody: FC<ProjectDialogContent> = ({
                   className="flex items-center gap-2 bg-gray-700/50 rounded-full px-3 py-1"
                 >
                   <Avatar className="w-6 h-6">
-                    <AvatarImage
-                      src={`/placeholder.svg?height=24&width=24`}
-                      alt={coworker}
-                    />
+                    <AvatarImage src={`/placeholder.svg?height=24&width=24`} alt={coworker} />
                     <AvatarFallback className="text-xs bg-gray-600 text-gray-300">
                       {coworker
-                        .split(" ")
+                        .split(' ')
                         .map((n) => n[0])
-                        .join("")
+                        .join('')
                         .toUpperCase()}
                     </AvatarFallback>
                   </Avatar>
-                  <span className="text-sm font-medium text-gray-200">
-                    {coworker}
-                  </span>
+                  <span className="text-sm font-medium text-gray-200">{coworker}</span>
                 </div>
               ))}
             </div>
@@ -85,7 +75,7 @@ const ProjectDialogBody: FC<ProjectDialogContent> = ({
                   <CarouselItem key={index}>
                     <div className="relative w-full h-64 md:h-80 lg:h-96 rounded-lg overflow-hidden bg-gray-800">
                       <Image
-                        src={image || "/placeholder.svg"}
+                        src={image || '/placeholder.svg'}
                         alt={`${title} - Image ${index + 1}`}
                         fill
                         className="object-cover"
@@ -107,9 +97,7 @@ const ProjectDialogBody: FC<ProjectDialogContent> = ({
         {/* Long Descriptions */}
         {longdescriptions && longdescriptions.length > 0 && (
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-white">
-              Project Details
-            </h3>
+            <h3 className="text-xl font-semibold text-white">Project Details</h3>
             <div className="space-y-4 prose prose-invert prose-sm sm:prose-base max-w-none text-gray-300">
               {longdescriptions.map((desc, index) => (
                 <p key={index}>{desc}</p>
@@ -122,9 +110,7 @@ const ProjectDialogBody: FC<ProjectDialogContent> = ({
         <div className="space-y-6">
           {languages && languages.length > 0 && (
             <div>
-              <h4 className="text-lg font-semibold text-white mb-3">
-                Languages
-              </h4>
+              <h4 className="text-lg font-semibold text-white mb-3">Languages</h4>
               <div className="flex flex-wrap gap-2">
                 {languages.map((language, index) => {
                   const IconComponent = getIcon(language);
@@ -145,9 +131,7 @@ const ProjectDialogBody: FC<ProjectDialogContent> = ({
 
           {technologies && technologies.length > 0 && (
             <div>
-              <h4 className="text-lg font-semibold text-white mb-3">
-                Technologies
-              </h4>
+              <h4 className="text-lg font-semibold text-white mb-3">Technologies</h4>
               <div className="flex flex-wrap gap-2">
                 {technologies.map((technology, index) => {
                   const IconComponent = getIcon(technology);
@@ -194,4 +178,3 @@ const ProjectDialogBody: FC<ProjectDialogContent> = ({
 };
 
 export default ProjectDialogBody;
-

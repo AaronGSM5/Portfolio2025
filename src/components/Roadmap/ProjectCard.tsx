@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { FC, useState, useRef, useEffect } from "react";
-import Image from "next/image";
-import { ProjectCardProps } from "./types";
-import ProjectDialog from "./ProjectDialog";
+import { FC, useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
+import { ProjectCardProps } from './types';
+import ProjectDialog from './ProjectDialog';
 
 const ProjectCard: FC<ProjectCardProps> = (props) => {
   const { title, imageLink, description, month, year } = props;
@@ -25,8 +25,8 @@ const ProjectCard: FC<ProjectCardProps> = (props) => {
         }
       },
       {
-        rootMargin: "100px",
-        threshold: 0,
+        rootMargin: '100px',
+        threshold: 0
       }
     );
 
@@ -50,7 +50,7 @@ const ProjectCard: FC<ProjectCardProps> = (props) => {
         const rect = buttonRef.current.getBoundingClientRect();
         setCoords({
           x: e.clientX - rect.left,
-          y: e.clientY - rect.top,
+          y: e.clientY - rect.top
         });
       }
     };
@@ -59,29 +59,26 @@ const ProjectCard: FC<ProjectCardProps> = (props) => {
     const handleMouseLeave = () => setIsHovering(false);
 
     const buttonElement = buttonRef.current;
-    buttonElement.addEventListener("mousemove", handleMouseMove);
-    buttonElement.addEventListener("mouseenter", handleMouseEnter);
-    buttonElement.addEventListener("mouseleave", handleMouseLeave);
+    buttonElement.addEventListener('mousemove', handleMouseMove);
+    buttonElement.addEventListener('mouseenter', handleMouseEnter);
+    buttonElement.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
-      buttonElement.removeEventListener("mousemove", handleMouseMove);
-      buttonElement.removeEventListener("mouseenter", handleMouseEnter);
-      buttonElement.removeEventListener("mouseleave", handleMouseLeave);
+      buttonElement.removeEventListener('mousemove', handleMouseMove);
+      buttonElement.removeEventListener('mouseenter', handleMouseEnter);
+      buttonElement.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, [isVisible]);
 
   const gradientStyle = {
     background: `radial-gradient(circle at ${coords.x}px ${coords.y}px, var(--tw-gradient-stops))`,
-    "--tw-gradient-from": "rgba(30, 64, 175, 0.8)",
-    "--tw-gradient-to": "rgba(30, 41, 59, 0.8)",
-    "--tw-gradient-stops": "var(--tw-gradient-from), var(--tw-gradient-to)",
+    '--tw-gradient-from': 'rgba(30, 64, 175, 0.8)',
+    '--tw-gradient-to': 'rgba(30, 41, 59, 0.8)',
+    '--tw-gradient-stops': 'var(--tw-gradient-from), var(--tw-gradient-to)'
   };
 
   return (
-    <div
-      ref={cardRef}
-      className="col-span-1 p-4 md:p-8 min-h-[300px] flex w-full"
-    >
+    <div ref={cardRef} className="col-span-1 p-4 md:p-8 min-h-[300px] flex w-full">
       {isVisible ? (
         <div
           className="rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out
@@ -90,7 +87,7 @@ const ProjectCard: FC<ProjectCardProps> = (props) => {
         >
           <div className="relative w-full h-48 sm:h-56 lg:h-64 bg-gray-700 overflow-hidden">
             <Image
-              src={imageLink || "/placeholder.svg"}
+              src={imageLink || '/placeholder.svg'}
               alt={title}
               fill
               className="object-cover transition-transform duration-300 ease-in-out hover:scale-105"
@@ -145,4 +142,3 @@ const ProjectCard: FC<ProjectCardProps> = (props) => {
 };
 
 export default ProjectCard;
-

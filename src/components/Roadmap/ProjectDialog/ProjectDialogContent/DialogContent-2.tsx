@@ -1,13 +1,13 @@
-import type { FC } from "react";
-import type { ProjectDialogContent } from "../../types";
-import Image from "next/image";
-import { Code, Star, ArrowRight } from "lucide-react";
+import type { FC } from 'react';
+import type { ProjectDialogContent } from '../../types';
+import Image from 'next/image';
+import { Code, Star, ArrowRight } from 'lucide-react';
 
-import { DialogTitle, DialogFooter, DialogClose } from "@/components/ui/dialog";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Card, CardContent } from "@/components/ui/card";
+import { DialogTitle, DialogFooter, DialogClose } from '@/components/ui/dialog';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Card, CardContent } from '@/components/ui/card';
 
-import { getIcon } from "./content";
+import { getIcon } from './content';
 
 const ProjectDialogBodyMagazine: FC<ProjectDialogContent> = ({
   title,
@@ -16,7 +16,7 @@ const ProjectDialogBodyMagazine: FC<ProjectDialogContent> = ({
   link,
   languages,
   technologies,
-  images,
+  images
 }) => {
   return (
     <div className="flex flex-col h-full">
@@ -24,7 +24,7 @@ const ProjectDialogBodyMagazine: FC<ProjectDialogContent> = ({
         {images && images.length > 0 && (
           <div className="relative h-64 md:h-80 overflow-hidden">
             <Image
-              src={images[0] || "/placeholder.svg"}
+              src={images[0] || '/placeholder.svg'}
               alt={title}
               fill
               className="object-cover"
@@ -42,28 +42,20 @@ const ProjectDialogBodyMagazine: FC<ProjectDialogContent> = ({
         {coworkers && coworkers.length > 0 && (
           <div className="absolute top-4 left-4 flex -space-x-2">
             {coworkers.slice(0, 3).map((coworker, index) => (
-              <Avatar
-                key={index}
-                className="w-10 h-10 border-2 border-gray-500/50 shadow-lg"
-              >
-                <AvatarImage
-                  src={`/placeholder.svg?height=40&width=40`}
-                  alt={coworker}
-                />
+              <Avatar key={index} className="w-10 h-10 border-2 border-gray-500/50 shadow-lg">
+                <AvatarImage src={`/placeholder.svg?height=40&width=40`} alt={coworker} />
                 <AvatarFallback className="bg-gradient-to-br from-gray-600 to-gray-700 text-white text-sm font-semibold">
                   {coworker
-                    .split(" ")
+                    .split(' ')
                     .map((n) => n[0])
-                    .join("")
+                    .join('')
                     .toUpperCase()}
                 </AvatarFallback>
               </Avatar>
             ))}
             {coworkers.length > 3 && (
               <div className="w-10 h-10 rounded-full bg-gray-800 border-2 border-gray-500/50 shadow-lg flex items-center justify-center">
-                <span className="text-white text-xs font-semibold">
-                  +{coworkers.length - 3}
-                </span>
+                <span className="text-white text-xs font-semibold">+{coworkers.length - 3}</span>
               </div>
             )}
           </div>
@@ -80,9 +72,7 @@ const ProjectDialogBodyMagazine: FC<ProjectDialogContent> = ({
               <div className="prose prose-invert prose-lg max-w-none">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-1 h-8 bg-gradient-to-b from-blue-500 to-indigo-500 rounded-full" />
-                  <h2 className="text-2xl font-bold text-white m-0">
-                    Project Story
-                  </h2>
+                  <h2 className="text-2xl font-bold text-white m-0">Project Story</h2>
                 </div>
                 <div className="space-y-4 text-gray-300 leading-relaxed">
                   {longdescriptions.map((desc, index) => (
@@ -114,7 +104,7 @@ const ProjectDialogBodyMagazine: FC<ProjectDialogContent> = ({
                     >
                       <div className="relative aspect-video">
                         <Image
-                          src={image || "/placeholder.svg"}
+                          src={image || '/placeholder.svg'}
                           alt={`${title} - Image ${index + 2}`}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -187,9 +177,7 @@ const ProjectDialogBodyMagazine: FC<ProjectDialogContent> = ({
             {coworkers && coworkers.length > 0 && (
               <Card className="bg-gray-800/50 border border-gray-700">
                 <CardContent className="p-4">
-                  <h3 className="text-lg font-bold text-white mb-4">
-                    Meet the Team
-                  </h3>
+                  <h3 className="text-lg font-bold text-white mb-4">Meet the Team</h3>
                   <div className="space-y-3">
                     {coworkers.map((coworker, index) => (
                       <div
@@ -197,22 +185,17 @@ const ProjectDialogBodyMagazine: FC<ProjectDialogContent> = ({
                         className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-700/60 transition-colors"
                       >
                         <Avatar className="w-10 h-10">
-                          <AvatarImage
-                            src={`/placeholder.svg?height=40&width=40`}
-                            alt={coworker}
-                          />
+                          <AvatarImage src={`/placeholder.svg?height=40&width=40`} alt={coworker} />
                           <AvatarFallback className="bg-gradient-to-br from-gray-600 to-gray-700 text-white font-semibold">
                             {coworker
-                              .split(" ")
+                              .split(' ')
                               .map((n) => n[0])
-                              .join("")
+                              .join('')
                               .toUpperCase()}
                           </AvatarFallback>
                         </Avatar>
                         <div>
-                          <p className="font-medium text-gray-200">
-                            {coworker}
-                          </p>
+                          <p className="font-medium text-gray-200">{coworker}</p>
                           <p className="text-sm text-gray-400">Collaborator</p>
                         </div>
                       </div>
@@ -253,4 +236,3 @@ const ProjectDialogBodyMagazine: FC<ProjectDialogContent> = ({
 };
 
 export default ProjectDialogBodyMagazine;
-

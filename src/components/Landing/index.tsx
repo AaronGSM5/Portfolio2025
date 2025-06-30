@@ -1,23 +1,23 @@
-import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Twitter, Mail, Code } from "lucide-react";
-import Link from "next/link";
+import { Button } from '@/components/ui/button';
+import { Github, Linkedin, Twitter, Mail, Code } from 'lucide-react';
+import Link from 'next/link';
 
-import { landing } from "@/lib/content/index";
+import { landing } from '@/lib/content/index';
 
 export default function PortfolioHero() {
   const socialLinks = [
-    { icon: Github, href: "https://github.com/yourusername", label: "GitHub" },
+    { icon: Github, href: 'https://github.com/yourusername', label: 'GitHub' },
     {
       icon: Linkedin,
-      href: "https://linkedin.com/in/yourusername",
-      label: "LinkedIn",
+      href: 'https://linkedin.com/in/yourusername',
+      label: 'LinkedIn'
     },
     {
       icon: Twitter,
-      href: "https://twitter.com/yourusername",
-      label: "Twitter",
+      href: 'https://twitter.com/yourusername',
+      label: 'Twitter'
     },
-    { icon: Mail, href: "mailto:your.email@example.com", label: "Email" },
+    { icon: Mail, href: 'mailto:your.email@example.com', label: 'Email' }
   ];
 
   return (
@@ -34,9 +34,7 @@ export default function PortfolioHero() {
           <div className="relative mb-8">
             <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg blur opacity-25"></div>
             <div className="relative bg-black/50 backdrop-blur-sm border border-white/10 rounded-lg px-6 py-3 inline-block">
-              <p className="text-xl md:text-2xl text-gray-300 font-light">
-                {landing.job}
-              </p>
+              <p className="text-xl md:text-2xl text-gray-300 font-light">{landing.job}</p>
             </div>
           </div>
         </div>
@@ -90,4 +88,3 @@ export default function PortfolioHero() {
     </section>
   );
 }
-
