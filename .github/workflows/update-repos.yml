@@ -1,0 +1,41 @@
+name: Update Repositories on Push (Public Repos Only)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  update-repo-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Stelle sicher, dass diese Version mit deinem Skript kompatibel ist (z.B. für `fetch`)
+
+      - name: Install Node.js dependencies (if any, like 'node-fetch')
+        # Wenn du 'node-fetch' oder andere Module im Skript nutzt und keine package.json hast,
+        # installiere es hier:
+        # run: npm install node-fetch # Entferne dies, wenn du Node.js 18+ nutzt und keine weiteren Module hast
+        # Wenn du eine package.json im Wurzelverzeichnis oder im 'scripts'-Ordner hast:
+        run: npm install
+
+      - name: Run Node.js script to fetch and process repositories
+        env:
+          GITHUB_USERNAME: AaronGSM5
+        run: node scripts/fetch-repos.js
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+
+          git add data/repos.json # Passe den Pfad an, wenn du einen anderen OUTPUT_DIR/OUTPUT_FILENAME verwendest
+          git commit -m "chore: Update public repository data via Node.js script" || echo "No changes to commit"
+          git push origin main || echo "Failed to push, perhaps no changes or branch does not exist"
