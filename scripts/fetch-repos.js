@@ -1,4 +1,3 @@
-const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
 
@@ -24,9 +23,8 @@ async function fetchAndProcessRepos() {
 
     const repos = await response.json();
 
-    // Filtere Repositories: nur eigene (keine Forks) und relevante Felder extrahieren
     const processedRepos = repos
-      .filter((repo) => !repo.fork) // Nur eigene Repositories (keine Forks)
+      .filter((repo) => !repo.fork)
       .map((repo) => ({
         name: repo.name,
         description: repo.description,
